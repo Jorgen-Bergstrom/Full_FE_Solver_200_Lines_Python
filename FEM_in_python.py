@@ -1,16 +1,5 @@
 #!/usr/bin/env python
-
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# Copyright 2022 Jorgen Bergstrom
+# Author: Jorgen Bergstrom, Ph.D.
 
 import sys
 import numpy as np
@@ -133,7 +122,6 @@ def main():
 	print('   number of elements:', len(conn))
 	print('   number of displacement boundary conditions:', len(boundary))
 
-
 	###############################
 	# Plane-strain material tangent (see Bathe p. 194)
 	# C is 3x3
@@ -243,7 +231,7 @@ def main():
 		node_stress.append([0.0, 0.0, 0.0])
 	node_strain = np.array(node_strain)
 	node_stress = np.array(node_stress)
-	
+
 	print(f'   min displacements: u1={min(u[0::2]):.4g}, u2={min(u[1::2]):.4g}')
 	print(f'   max displacements: u1={max(u[0::2]):.4g}, u2={max(u[1::2]):.4g}')
 	emin = np.array([ 9.0e9,  9.0e9,  9.0e9])
@@ -262,7 +250,7 @@ def main():
 			B[1,1::2] = dN[1,:]
 			B[2,0::2] = dN[1,:]
 			B[2,1::2] = dN[0,:]
-	
+
 			UU = np.zeros((8,1))				# 8x1
 			UU[0] = u[2*c[0]]
 			UU[1] = u[2*c[0] + 1]
